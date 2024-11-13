@@ -1,0 +1,21 @@
+<odoo>
+    <record id="view_expense_form_inherit" model="ir.ui.view">
+        <field name="name">hr.expense.sheet.form.inherit</field>
+        <field name="model">hr.expense.sheet</field>
+        <field name="inherit_id" ref="hr_expense.view_hr_expense_sheet_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet" position="inside">
+                <field name="allowed_journal_ids" invisible="1"/>
+            </xpath>
+            <field name="bank_journal_id" position="attributes">
+                <attribute name="domain">
+                    [
+                        '|',
+                        ('id', 'in', allowed_journal_ids),
+                        ('id', 'not in', allowed_journal_ids)
+                    ]
+                </attribute>
+            </field>
+        </field>
+    </record>
+</odoo>

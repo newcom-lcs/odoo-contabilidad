@@ -1,0 +1,15 @@
+<odoo>
+    <record id="view_move_line_tree_inherit" model="ir.ui.view">
+        <field name="name">account.move.line.tree.inherit</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="currency_rate_second_currency"/>
+                <field name="debit_second_currency" widget="monetary" sum="true"/>
+                <field name="credit_second_currency" widget="monetary" sum="true"/>
+                <field name="balance_second_currency" widget="monetary" sum="true"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

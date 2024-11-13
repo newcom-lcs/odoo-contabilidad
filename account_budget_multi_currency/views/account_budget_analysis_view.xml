@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_crossovered_budget_line_pivot_inherit_multi_currency" model="ir.ui.view">
+            <field name="name">crossovered.budget.lines.pivot.inherit.multi.currency</field>
+            <field name="model">crossovered.budget.lines</field>
+            <field name="inherit_id" ref="account_budget.view_crossovered_budget_line_pivot" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='planned_amount']" position="after">
+                    <field name="custom_planned_amount" type="measure" />
+                </xpath>
+                <xpath expr="//field[@name='practical_amount']" position="after">
+                    <field name="custom_practical_amount" type="measure" />
+                </xpath>
+                <xpath expr="//field[@name='theoritical_amount']" position="after">
+                    <field name="custom_theoritical_amount" options="{'widget':'boolean'}" type="measure" />
+                    <field name="custom_percentage" widget="percentage" type="measure" string="Achievement (Other Currency)"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_crossovered_budget_line_graph_inherit_multi_currency" model="ir.ui.view">
+            <field name="name">crossovered.budget.lines.graph.inherit.multi.currency</field>
+            <field name="model">crossovered.budget.lines</field>
+            <field name="inherit_id" ref="account_budget.view_crossovered_budget_line_graph" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='planned_amount']" position="after">
+                    <field name="custom_planned_amount" type="measure" string="Importe Previsto (USD)"/>
+                </xpath>
+                <xpath expr="//field[@name='practical_amount']" position="after">
+                    <field name="custom_practical_amount" type="measure" string="Importe Real (USD)"/>
+                </xpath>
+                <xpath expr="//field[@name='theoritical_amount']" position="after">
+                    <field name="custom_theoritical_amount" type="measure" string="Importe Teórico (USD)"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_crossovered_budget_line_tree_inherit_multi_currency" model="ir.ui.view">
+            <field name="name">crossovered.budget.lines.tree.inherit.multi.currency</field>
+            <field name="model">crossovered.budget.lines</field>
+            <field name="inherit_id" ref="account_budget.view_crossovered_budget_line_tree" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='planned_amount']" position="after">
+                    <field name="custom_planned_amount" type="measure" string="Importe Previsto (USD)"/>
+                </xpath>
+                <xpath expr="//field[@name='practical_amount']" position="after">
+                    <field name="custom_practical_amount" type="measure" string="Importe Real (USD)"/>
+                </xpath>
+                <xpath expr="//field[@name='theoritical_amount']" position="after">
+                    <field name="custom_theoritical_amount" options="{'widget':'boolean'}" type="measure" string="Importe Teórico (USD)"/>
+                    <field name="custom_percentage" type="measure" widget="percentage" string="Logro (USD)"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_crossovered_budget_line_form_inherit_multi_currency" model="ir.ui.view">
+            <field name="name">crossovered.budget.lines.form.inherit.multi.currency</field>
+            <field name="model">crossovered.budget.lines</field>
+            <field name="inherit_id" ref="account_budget.view_crossovered_budget_line_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='planned_amount']" position="after">
+                    <field name="custom_planned_amount" type="measure" string="Importe Previsto (USD)"/>
+                </xpath>
+                <xpath expr="//field[@name='theoritical_amount']" position="after">
+                    <field name="custom_practical_amount" type="measure" string="Importe Real (USD)"/>
+                    <field name="custom_theoritical_amount" type="measure" string="Importe Teórico (USD)"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

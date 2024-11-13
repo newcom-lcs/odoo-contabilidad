@@ -1,0 +1,32 @@
+<odoo>
+    <data>
+        <record id="view_account_analytic_account_form_inherit_smart_button_combined" model="ir.ui.view">
+            <field name="name">account.analytic.account.form.inherit.smart.button.combined</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="analytic.view_account_analytic_account_form" />
+            <field name="arch" type="xml">   
+                <!-- Insert new buttons before the 'action_view_invoice' button -->
+                <xpath expr="//button[@name='action_view_invoice']" position="before">
+                    <button name="action_show_custom_planned_amount" type="object" class="oe_stat_button" icon="fa-usd" string="Presupuesto">
+                        <div class="o_stat_info">
+                            <span class="o_stat_text">Presupuesto</span>
+                            <span class="o_stat_value">
+                                USD&#160;
+                                <field name="total_custom_planned_amount" widget="monetary"/>
+                            </span>
+                        </div>
+                    </button>
+                    <button name="action_show_gross_margin_second_currency" type="object" class="oe_stat_button" icon="fa-usd" string="Margen Bruto">
+                        <div class="o_stat_info">
+                            <span class="o_stat_text">Margen Bruto</span>
+                            <span class="o_stat_value">
+                                USD&#160;
+                                <field name="balance" widget="monetary"/>
+                            </span>
+                        </div>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

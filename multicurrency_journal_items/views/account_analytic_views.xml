@@ -1,0 +1,17 @@
+<odoo>
+    <record id="view_account_analytic_account_list" model="ir.ui.view">
+        <field name="name">account.analytic.account.form</field>
+        <field name="model">account.analytic.account</field>
+        <field name="inherit_id" ref="analytic.view_account_analytic_account_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <!-- Related fields from account_move_line -->
+                <field name="second_currency_id" readonly="1"/>
+                <field name="debit_second_currency" readonly="1"/>
+                <field name="credit_second_currency" readonly="1"/>
+                <field name="amount_second_currency" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+
