@@ -1,5 +1,5 @@
 {
-    'name': 'My Custom Module',
+    'name': 'Actualizar Mano de Obra',
     'version': '1.0',
     'category': 'Accounting',
     'summary': 'Custom module to update analytic lines',
