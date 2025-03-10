@@ -1,7 +1,7 @@
 {
     'name': 'Argentina Padron AGIP',
     'version': '1.0',
-    'category': 'Sales',
+    'category': 'Accounting',
     'summary': 'Argentina Padron AGIP',
     'license': 'LGPL-3',
     'author': 'Newcom LCS',
