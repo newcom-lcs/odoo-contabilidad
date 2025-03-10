@@ -8,7 +8,7 @@
     'description': """
         Argentina Padron AGIP
     """,
-    # 'depends': ['l10n_ar_account_withholding'],
+    'depends': ['l10n_ar_account_withholding_ratio'],
     'data': [
     ],
     'installable': True,
