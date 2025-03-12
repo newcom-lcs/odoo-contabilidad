@@ -8,7 +8,7 @@ class ApprovalProductLine(models.Model):
         string='Analytic Account',
         help="Analytic account to which this line will be distributed",
     )
-    analytic_distribution = fields.Json(string="Analytic Distribution")
+    analytic_distribution = fields.Json(string="Cuenta Analítica")
     analytic_precision = fields.Integer(
         string="Analytic Precision",
         default=lambda self: self.env['decimal.precision'].precision_get('Percentage'),
