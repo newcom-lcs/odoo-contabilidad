@@ -6,9 +6,11 @@
         <field name="model">approval.request</field>
         <field name="inherit_id" ref="approvals.approval_request_view_form"/>
         <field name="arch" type="xml">
-            <!-- Add the always_add_manager checkbox after the approver_sequence field -->
-            <xpath expr="//field[@name='approver_sequence']" position="after">
-                <field name="always_add_manager" groups="approvals.group_approval_user"/>
+            <!-- Add the field at the end of the form, which should work in all versions -->
+            <xpath expr="//form/sheet" position="inside">
+                <group name="manager_approval_settings" string="Manager Approval Settings">
+                    <field name="always_add_manager" groups="approvals.group_approval_user"/>
+                </group>
             </xpath>
         </field>
     </record>
