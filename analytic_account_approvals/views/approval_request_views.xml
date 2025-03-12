@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit the approval request form view to add the always_add_manager field -->
+    <record id="approval_request_view_form_inherit" model="ir.ui.view">
+        <field name="name">approval.request.form.inherit</field>
+        <field name="model">approval.request</field>
+        <field name="inherit_id" ref="approvals.approval_request_view_form"/>
+        <field name="arch" type="xml">
+            <!-- Add the always_add_manager checkbox in the configuration section -->
+            <xpath expr="//group[@name='config']" position="inside">
+                <field name="always_add_manager" groups="approvals.group_approval_user"/>
+            </xpath>
+        </field>
+    </record>
+</odoo> 
