@@ -1,17 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Inherit the approval request form view to add the always_add_manager field -->
-    <record id="approval_request_view_form_inherit" model="ir.ui.view">
-        <field name="name">approval.request.form.inherit</field>
-        <field name="model">approval.request</field>
-        <field name="inherit_id" ref="approvals.approval_request_view_form"/>
-        <field name="arch" type="xml">
-            <!-- Add the field at the end of the form, which should work in all versions -->
-            <xpath expr="//form/sheet" position="inside">
-                <group name="manager_approval_settings" string="Manager Approval Settings">
-                    <field name="always_add_manager" groups="approvals.group_approval_user"/>
-                </group>
-            </xpath>
-        </field>
-    </record>
+    <!-- No views needed as we're handling this automatically in the background -->
 </odoo> 

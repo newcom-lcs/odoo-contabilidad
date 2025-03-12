@@ -3,13 +3,6 @@ from odoo import api, fields, models
 class ApprovalRequest(models.Model):
     _inherit = 'approval.request'
 
-    # Add a field to control whether to automatically add the manager if not present
-    always_add_manager = fields.Boolean(
-        string="Always Include Manager Approval",
-        default=True,
-        help="If checked, the employee's manager will always be added as an approver"
-    )
-
     def action_create_purchase_orders(self):
         """Override the standard method to create purchase orders with analytic accounts."""
         # Store the existing purchase orders before calling the original method
@@ -55,7 +48,7 @@ class ApprovalRequest(models.Model):
         
         # For each created record, check if we need to reorder approvers
         for record in records:
-            if record.approver_sequence and (record.has_manager_approval or record.user_has_groups('approvals.group_approval_manager')):
+            if record.approver_sequence:
                 record._ensure_manager_first_approver()
                 
         return records
@@ -67,7 +60,7 @@ class ApprovalRequest(models.Model):
         # If relevant fields changed, reapply the manager-first logic
         if any(field in vals for field in ['approver_ids', 'approver_sequence', 'has_manager_approval']):
             for record in self:
-                if record.approver_sequence and (record.has_manager_approval or record.user_has_groups('approvals.group_approval_manager')):
+                if record.approver_sequence:
                     record._ensure_manager_first_approver()
                     
         return result

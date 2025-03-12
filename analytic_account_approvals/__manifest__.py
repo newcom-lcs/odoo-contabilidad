@@ -17,7 +17,6 @@
     'data': [
         'security/ir.model.access.csv',
         'views/approval_product_line_views.xml',
-        'views/approval_request_views.xml',
     ],
     'post_init_hook': 'post_init_hook',
     'post_update_hook': 'post_update_hook',
