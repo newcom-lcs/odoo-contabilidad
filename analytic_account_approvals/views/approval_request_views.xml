@@ -6,8 +6,8 @@
         <field name="model">approval.request</field>
         <field name="inherit_id" ref="approvals.approval_request_view_form"/>
         <field name="arch" type="xml">
-            <!-- Add the always_add_manager checkbox in the configuration section -->
-            <xpath expr="//group[@name='config']" position="inside">
+            <!-- Add the always_add_manager checkbox after the approver_sequence field -->
+            <xpath expr="//field[@name='approver_sequence']" position="after">
                 <field name="always_add_manager" groups="approvals.group_approval_user"/>
             </xpath>
         </field>
