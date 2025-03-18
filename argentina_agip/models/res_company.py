@@ -1,12 +1,11 @@
-from odoo import models, fields, api, _
+from odoo import models
 
-# from pyafipws.padron import PadronAFIP
-from odoo.exceptions import UserError, RedirectWarning
-import logging
-import json
-import requests
+from odoo.exceptions import UserError
+# import logging
+# import json
+# import requests
 # from dateutil.relativedelta import relativedelta
-_logger = logging.getLogger(__name__)
+# _logger = logging.getLogger(__name__)
 
 
 class ResCompany(models.Model):
