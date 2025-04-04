@@ -16,7 +16,7 @@ class ResCompany(models.Model):
         :param date: La fecha del comprobante
         Devuelve diccionario de datos
         """
-        vat = partner.vat
+        vat = partner.vat.replace("-","")
         
         alicuota_percepcion = 0.0
         alicuota_retencion = 0.0
@@ -45,6 +45,7 @@ class ResCompany(models.Model):
             'alicuota_retencion': alicuota_retencion,
             'numero_comprobante': numero_comprobante,
         }
+
 
         _logger.info("We've got the following data: \n%s" % data)
 
