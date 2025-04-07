@@ -10,7 +10,7 @@
     """,
     'depends': ['l10n_ar_account_withholding'],
     'data': [
-        'account_move_view.xml',
+        'views/account_move_view.xml',
     ],
     'installable': True,
     'application': False,
