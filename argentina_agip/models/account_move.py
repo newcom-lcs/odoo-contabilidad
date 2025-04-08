@@ -47,7 +47,7 @@ class AccountMove(models.Model):
         for alicuota in alicuotas:
             # busco todos los impuestos que contienen los tags de las alicuotas del partner
             repartition_lines = self.env['account.tax.repartition.line'].search([('tag_ids', '=', alicuota.tag_id.id)])
-            taxes = repartition_lines.mapped('tax_id').filtered(lambda tax: tax.active)
+            taxes = repartition_lines.mapped('tax_id').filtered(lambda tax: tax.active and tax.type_tax_use == 'sale')
             _logger.info(taxes)
 
             
