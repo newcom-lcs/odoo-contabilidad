@@ -9,7 +9,7 @@
                 <field name="requires_analytic" invisible="1"/>
             </xpath>
             <field name="analytic_distribution" position="attributes">
-                <attribute name="attrs">{'required': [('requires_analytic', '=', True)]}</attribute>
+                <attribute name="attrs">{'readonly': [('requires_analytic', '=', False)], 'required': [('requires_analytic', '=', True)]}</attribute>
             </field>
         </field>
     </record>
