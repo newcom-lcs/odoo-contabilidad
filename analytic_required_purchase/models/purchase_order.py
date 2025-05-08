@@ -48,17 +48,4 @@ class PurchaseOrderLine(models.Model):
     def _check_analytic_required(self):
         for line in self:
             if line.requires_analytic and not line.analytic_distribution:
-                raise ValidationError(_("La cuenta analítica es requerida."))
-
-    def _get_analytic_distribution_readonly_states(self):
-        return {
-            'draft': [('readonly', lambda self: not self.requires_analytic)],
-            'sent': [('readonly', lambda self: not self.requires_analytic)],
-            'to approve': [('readonly', lambda self: not self.requires_analytic)],
-            'purchase': [('readonly', lambda self: not self.requires_analytic)],
-            'done': [('readonly', True)],
-            'cancel': [('readonly', True)],
-        }
-
-    def _get_analytic_distribution_invisible(self):
-        return {'invisible': [('requires_analytic', '=', False)]} 
+                raise ValidationError(_("La cuenta analítica es requerida.")) 
