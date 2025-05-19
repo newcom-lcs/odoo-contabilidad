@@ -5,9 +5,9 @@
         <field name="inherit_id" ref="analytic.view_account_analytic_account_list"/>
         <field name="arch" type="xml">
             <xpath expr="//tree" position="inside">
-                <field name="debit_second_currency"/>
-                <field name="credit_second_currency"/>
-                <field name="amount_second_currency"/>
+                <field name="debit_second_currency" optional="hide"/>
+                <field name="credit_second_currency" optional="hide" />
+                <field name="amount_second_currency" optional="hide"/>
             </xpath>
         </field>
     </record>
