@@ -36,6 +36,11 @@ msgid "Paid Amount (USD)"
 msgstr "Importe pagado (USD)"
 
 #. module: multicurrency_journal_items
+#: model:ir.model.fields,field_description:multicurrency_journal_items.field_account_move__amount_residual_signed_second_currency
+msgid "Residual Amount Signed (USD)"
+msgstr "Importe residual con signo (USD)"
+
+#. module: multicurrency_journal_items
 #: model:ir.model.fields,field_description:multicurrency_journal_items.field_account_move__second_currency_id
 msgid "Second Currency"
 msgstr "Segunda Moneda" 

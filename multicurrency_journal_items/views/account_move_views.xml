@@ -10,6 +10,7 @@
                 <field name="amount_total_second_currency" widget="monetary" sum="true" optional="hide"/>
                 <field name="amount_untaxed_signed_second_currency" widget="monetary" sum="true" optional="hide"/>
                 <field name="amount_tax_second_currency" widget="monetary" sum="true" optional="hide"/>
+                <field name="amount_residual_signed_second_currency" widget="monetary" sum="true" optional="hide"/>
             </xpath>
         </field>
     </record>
@@ -24,6 +25,7 @@
                 <field name="amount_total_second_currency" widget="monetary" sum="true" optional="hide"/>
                 <field name="amount_untaxed_signed_second_currency" widget="monetary" sum="true" optional="hide"/>
                 <field name="amount_tax_second_currency" widget="monetary" sum="true" optional="hide"/>
+                <field name="amount_residual_signed_second_currency" widget="monetary" sum="true" optional="hide"/>
             </xpath>
         </field>
     </record>
