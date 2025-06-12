@@ -10,5 +10,6 @@
         'views/res_company_views.xml',
         'views/account_analytic_line_views_extension.xml',
         'views/account_analytic_views.xml',
+        'views/account_move_views.xml',
     ],
 }

@@ -1,0 +1,46 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* multicurrency_journal_items
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-29 20:30+0000\n"
+"PO-Revision-Date: 2024-03-29 20:30+0000\n"
+"Last-Translator: \n"
+"Language-Team: Spanish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: multicurrency_journal_items
+#: model:ir.model.fields,field_description:multicurrency_journal_items.field_account_move__amount_untaxed_signed_second_currency
+msgid "Untaxed Amount Signed (USD)"
+msgstr "Importe sin impuestos con signo (USD)"
+
+#. module: multicurrency_journal_items
+#: model:ir.model.fields,field_description:multicurrency_journal_items.field_account_move__amount_total_second_currency
+msgid "Total Amount (USD)"
+msgstr "Importe total (USD)"
+
+#. module: multicurrency_journal_items
+#: model:ir.model.fields,field_description:multicurrency_journal_items.field_account_move__amount_tax_second_currency
+msgid "Tax Amount (USD)"
+msgstr "Importe de impuestos (USD)"
+
+#. module: multicurrency_journal_items
+#: model:ir.model.fields,field_description:multicurrency_journal_items.field_account_move__amount_paid_second_currency
+msgid "Paid Amount (USD)"
+msgstr "Importe pagado (USD)"
+
+#. module: multicurrency_journal_items
+#: model:ir.model.fields,field_description:multicurrency_journal_items.field_account_move__amount_residual_signed_second_currency
+msgid "Residual Amount Signed (USD)"
+msgstr "Importe residual con signo (USD)"
+
+#. module: multicurrency_journal_items
+#: model:ir.model.fields,field_description:multicurrency_journal_items.field_account_move__second_currency_id
+msgid "Second Currency"
+msgstr "Segunda Moneda" 
