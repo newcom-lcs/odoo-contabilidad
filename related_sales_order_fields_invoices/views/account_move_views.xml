@@ -8,6 +8,7 @@
             <xpath expr="//tree" position="inside">
                 <field name="so_tipo_negocio" optional="hide"/>
                 <field name="so_business_unit_id" optional="hide"/>
+                <field name="so_margen_teorico_display" optional="hide"/>
             </xpath>
         </field>
     </record>
@@ -19,6 +20,7 @@
             <xpath expr="//tree" position="inside">
                 <field name="so_tipo_negocio" optional="hide"/>
                 <field name="so_business_unit_id" optional="hide"/>
+                <field name="so_margen_teorico_display" optional="hide"/>
             </xpath>
         </field>
     </record>
