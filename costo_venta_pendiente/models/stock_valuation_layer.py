@@ -41,18 +41,3 @@ class StockValuationLayer(models.Model):
             
             layer.numero_orden = numero_orden
             layer.cantidad_facturada = cantidad_facturada 
-
-    def update_all_pending_moves(self):
-        """Método para actualizar manualmente todos los movimientos pendientes existentes"""
-        all_layers = self.search([])
-        all_layers._compute_orden_info()
-        return {
-            'type': 'ir.actions.client',
-            'tag': 'display_notification',
-            'params': {
-                'title': 'Actualización Completada',
-                'message': f'Se actualizaron {len(all_layers)} registros de capas de valuación',
-                'type': 'success',
-                'sticky': False,
-            }
-        } 
