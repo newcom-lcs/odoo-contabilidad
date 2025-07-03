@@ -5,7 +5,7 @@ class AccountChangeLockDate(models.TransientModel):
 
     sales_lock_date = fields.Date(
         string="Fecha de bloqueo para el diario ventas",
-        #default=lambda self: self.env.company.sales_lock_date,
+        default=lambda self: self.env.company.sales_lock_date,
         help="Los usuarios no podrán modificar documentos de venta con fecha anterior o igual a esta fecha."
     )
     
