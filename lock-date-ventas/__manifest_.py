@@ -8,7 +8,7 @@
     'description': 'Add a input for daily sales lock date',
     'depends': ['account', 'account_accountant'],
     'data': [
-        'wizard/account_lock_date_extension_views.xml',
+        'wizard/account_change_lock_date.xml',
     ],
     'installable': True,
     'application': False,
