@@ -8,7 +8,7 @@ class AccountMove(models.Model):
     def _check_fiscalyear_lock_date(self):
         res = super()._check_fiscalyear_lock_date()
         for move in self:
-            if move.journal_id.type == 'sale':
+            if move.journal_id == 'Facturas de Clientes':
                 lock_date_sales = move.company_id._get_user_sales_lock_date()
                 if lock_date_sales and move.date <= lock_date_sales:
                     if self.user_has_groups('account.group_account_manager'):
