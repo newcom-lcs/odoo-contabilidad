@@ -1,6 +1,6 @@
 <odoo>
     <data>
-        <record id="view_account_change_lock_date_inherit" model="ir.ui.view">
+        <record id="view_account_change_lock_date_form_inherit_sales" model="ir.ui.view">
             <field name="name">account.change.lock.date.inherit.form</field>
             <field name="model">account.change.lock.date</field>
             <field name="inherit_id" ref="account_accountant.view_account_change_lock_date"/>
