@@ -12,8 +12,8 @@ class AccountMove(models.Model):
                 lock_date_sales = move.company_id._get_user_sales_lock_date()
                 if lock_date_sales and move.date <= lock_date_sales:
                     if self.user_has_groups('account.group_account_manager'):
-                        message = _("You cannot add/modify entries prior to and inclusive of the lock date %s.", format_date(self.env, lock_date_sales))
+                        message = _("No se puede agregar/modificar documentos con fecha anterior a la de bloqueo %s.", format_date(self.env, lock_date_sales))
                     else:
-                        message = _("Entries cannot be added or modified before the sales journal lock date %s, inclusive. Please check your company settings or consult an advisor.", format_date(self.env, lock_date_sales))
+                        message = _("No se pueden agregar ni modificar entradas antes de la fecha de cierre del diario de ventas %s, inclusive. Revise la configuración de su empresa o consulte con un asesor.", format_date(self.env, lock_date_sales))
                     raise UserError(message)
         return res
