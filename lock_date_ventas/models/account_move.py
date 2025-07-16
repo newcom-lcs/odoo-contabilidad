@@ -27,16 +27,18 @@ class AccountMove(models.Model):
         return locks
 
     def _get_lock_date_message(self, invoice_date, has_tax):
-        lock_dates = self._get_violated_lock_dates(invoice_date, has_tax)
-        if lock_dates:
-            #invoice_date = self._get_accounting_date(invoice_date, has_tax)
-            lock_date, lock_type = lock_dates[-1]
-            tax_lock_date_message = _(
-                "The date is being set prior to the %(lock_type)s lock date %(lock_date)s. "
-                "Ingrese una fecha de factura posterior al %(lock_date)s",
-                lock_type=lock_type,
-                lock_date=format_date(self.env, lock_date),
-                invoice_date=format_date(self.env, invoice_date)
-                )
-            return tax_lock_date_message
+        for move in self:
+            if move.journal_id.type == 'sale':
+                lock_dates = self._get_violated_lock_dates(invoice_date, has_tax)
+                if lock_dates:
+                    lock_date, lock_type = lock_dates[-1]
+                    tax_lock_date_message = _(
+                        "The date is being set prior to the %(lock_type)s lock date %(lock_date)s. "
+                        "Ingrese una fecha de factura posterior al %(lock_date)s",
+                        lock_type=lock_type,
+                        lock_date=format_date(self.env, lock_date),
+                        )
+                    return tax_lock_date_message
+            else:
+                return super._get_lock_date_message(invoice_date, has_tax)
         return False
