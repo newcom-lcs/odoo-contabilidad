@@ -1,4 +1,4 @@
-from odoo import models, _
+from odoo import models, _, api, fields
 from odoo.exceptions import UserError
 from odoo.tools.misc import format_date
 
@@ -40,5 +40,14 @@ class AccountMove(models.Model):
                         )
                     return tax_lock_date_message
             else:
-                return super._get_lock_date_message(invoice_date, has_tax)
+                return super()._get_lock_date_message(invoice_date, has_tax)
         return False
+
+    @api.depends('date', 'auto_post')
+    def _compute_hide_post_button(self):
+        for record in self:
+            accounting_date = record.date or fields.Date.context_today(record)            
+            has_tax = record._affect_tax_report()
+            lock_dates = self._get_violated_lock_dates(accounting_date, has_tax)
+            record.hide_post_button = super()._compute_hide_post_button() or \
+            (record.journal_id.type == 'sale' and lock_dates)
