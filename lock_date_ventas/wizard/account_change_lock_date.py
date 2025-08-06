@@ -13,4 +13,3 @@ class AccountChangeLockDate(models.TransientModel):
         values = super()._prepare_lock_date_values()
         values['sales_lock_date'] = self.sales_lock_date
         return values
-    
