@@ -5,10 +5,11 @@
     'summary': 'Make analytic distribution required for specific products',
     'description': """
         Makes analytic distribution required for service products with expense account
+        Works on both Purchase Orders and Vendor Bills
     """,
     'author': 'Newcom LCS',
     'website': 'https://www.newcom-lcs.com',
-    'depends': ['purchase'],
+    'depends': ['purchase', 'account'],
     'data': [
         'views/purchase_order_views.xml',
     ],
