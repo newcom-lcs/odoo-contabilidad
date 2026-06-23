@@ -11,13 +11,19 @@ class HRExpenseSheet(models.Model):
     )
 
     @api.model
-    def default_get(self, fields):
-        defaults = super(HRExpenseSheet, self).default_get(fields)
+    def default_get(self, fields_list):
+        defaults = super().default_get(fields_list)
         if 'employee_id' in defaults:
             employee = self.env['hr.employee'].browse(defaults['employee_id'])
             if employee.allowed_journal_ids:
                 defaults['bank_journal_id'] = employee.allowed_journal_ids[0].id
         return defaults
+
+    @api.onchange('employee_id')
+    def _onchange_employee_id_journal(self):
+        if self.employee_id.allowed_journal_ids:
+            self.bank_journal_id = self.employee_id.allowed_journal_ids[0]
+
 
 class HRExpense(models.Model):
     _inherit = 'hr.expense'
@@ -29,4 +35,9 @@ class HRExpense(models.Model):
                 employee = self.env['hr.employee'].browse(vals['employee_id'])
                 if employee.default_analytic_account_id and not vals.get('analytic_distribution'):
                     vals['analytic_distribution'] = {employee.default_analytic_account_id.id: 100}
-        return super(HRExpense, self).create(vals_list)
+        return super().create(vals_list)
+
+    @api.onchange('employee_id')
+    def _onchange_employee_id_analytic(self):
+        if self.employee_id.default_analytic_account_id:
+            self.analytic_distribution = {self.employee_id.default_analytic_account_id.id: 100}

@@ -7,15 +7,6 @@
             <xpath expr="//form/sheet" position="inside">
                 <field name="allowed_journal_ids" invisible="1"/>
             </xpath>
-            <field name="bank_journal_id" position="attributes">
-                <attribute name="domain">
-                    [
-                        '|',
-                        ('id', 'in', allowed_journal_ids),
-                        ('id', 'not in', allowed_journal_ids)
-                    ]
-                </attribute>
-            </field>
         </field>
     </record>
 </odoo>
